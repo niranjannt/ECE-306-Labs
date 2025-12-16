@@ -141,22 +141,16 @@ The purpose of this lab is to demonstrate the difference between **polling-based
 1. Start execution at memory location `x3000`.  
 2. Print the following banner **10 times**:
 ====================
-*      ***  ****
-*     *   * *   *
-*     ***** ****
-*     *   * *   *
-***** *   * ****
+* *** ****
+* * * * *
+* ***** ****
+* * * * *
+***** * * ****
 
- * *  *****  
-***** *       
- * *  ***** 
-*****     *  
- * *  ****  
-====================
+ * * ***** ***** * * * ***** ***** * * * **** ====================
 Banners left to print: N
 ====================
 Banners left to print: N
-
 - `N` indicates the **number of banners remaining**.  
 - After printing the **first banner**, the program waits for the user to press a number key (1–9) to indicate the **dinner time**.  
 - Example input: `4`  
@@ -227,7 +221,6 @@ Sample Output (Polling Example)
 Banners left to print: 9
 Dinner will be served at 4:00 PM
 ...
-
 
 For the interrupt-driven version, the Dinner will be served at X:00 PM message may appear at any point during banner printing.
 

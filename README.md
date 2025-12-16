@@ -143,11 +143,13 @@ The purpose of this lab is to demonstrate the difference between **polling-based
 ====================
 * *** ****
 * * * * *
-* ***** ****
+***** ****
 * * * * *
-***** * * ****
-
- * * ***** ***** * * * ***** ***** * * * **** ====================
+***** *
+* * **** *
+* * *****
+***** * *
+* * **** * * ***** ***** * * * ***** ***** * * * **** ====================
 Banners left to print: N
 ====================
 Banners left to print: N
@@ -216,8 +218,7 @@ Sample Output (Polling Example)
 * * **** *
 * * *****
 ***** * *
-* * ****
-====================
+* * **** ====================
 Banners left to print: 9
 Dinner will be served at 4:00 PM
 ...

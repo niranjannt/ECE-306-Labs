@@ -1,0 +1,32 @@
+0011 000 000000 000; sets memory location to x3000
+
+0001 010 010 1 00000 ; sets r4=0
+
+0001 010 010 1 00001 ; sets r4=1
+
+0001 100 100 1 00000 ;sets storing register at r4
+
+
+
+
+0010 000 01111 1100  ; loads bit vector in register zero
+
+0101 001 000 0 00 010 ;ands bitvector with bitmask
+
+0000 010  000 000 001;jumps to adding bitmask to itself if zero
+
+0000 101  000 000 011;branch storing register
+
+
+
+0001 010 010 000 010  ;adds bitmask to itself
+
+0001 100 100  1 00001 ;adds storing register +1
+
+0000 001  1 1111 1010  ;jumps to and instruction               
+
+
+
+0011 100 0 1111 0110 ;storing register goes to x3101
+
+1111 000 0 010 10 010 ;halt

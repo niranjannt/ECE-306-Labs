@@ -1,0 +1,283 @@
+.ORIG x3000
+
+
+AND R0 R0 #0
+
+AND R1 R1 #0
+
+AND R2 R2 #0
+
+AND R3 R3 #0
+
+AND R4 R4 #0
+
+AND R5 R5 #0
+
+AND R6 R6 #0
+
+AND R7 R7 #0
+
+LD R0 A
+
+LD R1 B
+
+Brz FULLSTOP
+
+ADD R1, R1, #-1
+
+Brz FULLSTOP
+
+ST R1 X
+
+
+JUN LDR R2, R0, #0
+
+ADD R5, R0 #1
+
+LDR R3, R5, #0
+
+NOT R6 R3
+
+ADD R6 R6 #1
+
+ADD R4 R2 R6
+
+Brp x0001
+
+Brn BOOM
+
+
+STR R2, R0, #0
+
+STR R3, R5, #0
+
+ADD R0, R0 #1
+
+ADD R1 R1 #-1
+
+Brz STOP
+
+Brnp JUN
+
+
+BOOM STR R3, R0, #0
+
+STR R2, R5, #0
+
+ADD R0, R0 #1
+
+ADD R1 R1 #-1
+
+
+Brz STOP
+
+Brnp JUN
+
+
+STOP AND R0 R0 #0
+
+AND R1 R1 #0
+
+AND R2 R2 #0
+
+AND R3 R3 #0
+
+AND R4 R4 #0
+
+AND R5 R5 #0
+
+AND R6 R6 #0
+
+AND R7 R7 #0
+
+
+LD R0 A
+
+LD R1 B
+
+ADD R1 R1 #-2
+
+ADD R7 R0 R1
+
+
+
+LOP LDR R2, R7, #0
+
+ADD R5, R7 #-1
+
+LDR R3, R5, #0
+
+NOT R6 R3
+
+ADD R6 R6 #1
+
+ADD R4 R2 R6
+
+Brp KAWHI
+
+Brn TALKS
+
+
+TALKS STR R2, R7, #0
+
+STR R3, R5, #0
+
+ADD R0, R0 #-1
+
+ADD R1, R1 #-1
+
+
+
+Brnp LOP
+
+Brz STOPS
+
+
+KAWHI STR R3, R7, #0
+
+STR R2, R5, #0
+
+ADD R7, R7 #-1
+
+
+
+ADD R1, R1 #-1
+
+
+
+Brnp LOP
+
+Brz STOPS
+
+
+STOPS AND R0 R0 #0
+
+AND R1 R1 #0
+
+AND R2 R2 #0
+
+AND R3 R3 #0
+
+AND R4 R4 #0
+
+LD R0 A
+
+LD R1 B
+
+ADD R1, R1, #-1
+
+PAS LDR R2, R0, #0
+
+ADD R5, R0 #1
+
+LDR R3, R5, #0
+
+NOT R6 R3
+
+ADD R6 R6 #1
+
+ADD R4 R2 R6
+
+Brp x0001
+
+Brn TITE
+
+
+STR R2, R0, #0
+
+STR R3, R5, #0
+
+ADD R0, R0 #1
+
+ADD R1 R1 #-1
+
+
+Brnp PAS
+
+
+Brz STOPE
+
+
+
+TITE STR R3, R0, #0
+
+STR R2, R5, #0
+
+ADD R0, R0 #1
+
+ADD R1 R1 #-1
+
+
+Brnp PAS
+
+
+
+Brz STOPE
+
+STOPE LD R1 X
+
+ADD R1 R1 #-1
+
+ST R1 X
+
+Brz FULLSTOP
+
+
+
+Brnp START
+
+
+START AND R0 R0 #0
+
+AND R1 R1 #0
+
+AND R2 R2 #0
+
+AND R3 R3 #0
+
+AND R4 R4 #0
+
+AND R5 R5 #0
+
+AND R6 R6 #0
+
+AND R7 R7 #0
+
+LD R0 A
+
+LD R1 B
+
+ADD R1, R1, #-1
+
+Brnzp JUN
+
+
+
+FULLSTOP HALT
+
+;load base address and length of array here
+A   .fill    x33F0
+B   .fill     x0004
+
+F .fill  x3007
+
+G .fill  x3007
+
+
+H  .fill  x3034
+
+I  .fill  x3034
+
+X  .fill  x3100
+.END
+
+
+
+
+.ORIG x33F0
+.fill x0005
+.fill x0004
+.fill xFFFF
+.fill x0002
+
+.END

@@ -1,0 +1,150 @@
+.ORIG x3000
+
+RESTART AND R0 R0 #0
+
+AND R1 R1 #0
+
+AND R2 R2 #0
+
+AND R3 R3 #0
+
+AND R4 R4 #0
+
+AND R5 R5 #0
+
+AND R6 R6 #0
+
+AND R7 R7 #0
+
+LEA R2 BANNER
+
+LD R3 ASCII
+
+NOT R3 R3 
+
+ADD R3 R3 #1
+
+
+JUMP LDR R0 R2 #0
+
+ADD R4 R3 R0
+
+Brnp PUT
+
+Brz STOP
+
+PUT OUT
+
+ADD R2 R2 #1
+
+Brnzp JUMP
+
+STOP TRAP x20
+
+LEA R5 CHECK
+
+JUMP2 LDR R6 R5 #0
+
+Brz INVALID
+
+NOT R6 R6 
+
+ADD R6 R6 #1
+
+ADD R4 R0 R6 
+
+Brnp CHECKAGAIN
+
+Brz VALID
+
+
+VALID LEA R2 NEWSTRING
+
+ST R0 INPUT
+
+AND R5 R5 #0
+ 
+LOOP2 LDR R0 R2 #0
+
+LD R4 INPUT
+
+NOT R4 R4
+
+ADD R4 R4 #1
+
+ADD R3 R4 R0
+
+Brnp NEXT2
+
+Brz PRINT
+
+NEXT2 ADD R2 R2 #1
+
+ADD R5 R5 #1
+
+Brnzp LOOP2
+
+PRINT ADD R5 R5 #2
+
+
+LEA R2 NEWSTRING
+
+
+AGAIN4 LDR R0 R2 #0
+
+
+
+ADD R5 R5 #-1
+
+Brz RESTART
+
+Brnp AGAIN5
+
+
+AGAIN5 ADD R2 R2 #1
+
+OUT
+
+Brnzp AGAIN4
+
+
+CHECKAGAIN ADD R5 R5 #1
+
+Brnzp JUMP2
+
+
+INVALID ADD R7 R7 #15
+ADD R7 R7 #10
+
+LEA R6 INVALIDSTRING
+
+STR R0 R6 #1
+
+AGAINA LDR R0 R6 #1
+
+OUT
+
+ADD R7 R7 #-1
+
+Brnp NEXT
+
+Brz RESTART
+
+NEXT ADD R6 R6 #1
+
+Brnzp AGAINA
+
+STOPA HALT
+
+
+
+
+
+NEWSTRING .STRINGZ "123456789"
+CHECK .STRINGZ "987654321"
+INPUT .BLKW 1
+ASCII .STRINGZ "\0"
+BANNER .STRINGZ "\n====================\n*    *  *******\n*    *     *\n*    *     *\n*    *     *\n ****      *\n                \n****   ****  ****\n*     *      *\n****  *      ****\n*     *      *\n****   ****  ****\n====================\n\0"
+INVALIDSTRING .STRINGZ "#  is not a decimal digit."
+
+.END

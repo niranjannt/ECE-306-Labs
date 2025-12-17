@@ -6,7 +6,7 @@ Fall 2023
 ---
 
 ## Overview
-This repository contains LC-3 programs for **EE 306: Introduction to Computer Systems**, Fall 2025. Each program implements a fundamental computer engineering concept, including integer comparison, bit manipulation, array sorting, and linked list operations.
+This repository contains LC-3 programs for **EE 306: Introduction to Computer Systems**, Fall 2023. Each program implements a fundamental computer engineering concept, including integer comparison, bit manipulation, array sorting, and linked list operations.
 
 All programs are written in **LC-3 machine language or assembly** and are intended to be run on the **LC-3 Simulator**.
 
